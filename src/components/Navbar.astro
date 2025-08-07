@@ -1,0 +1,164 @@
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bellefair&family=Castoro:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    .font-castoro {
+      font-family: "Castoro", serif;
+    }
+  </style>
+</head>
+<nav
+  class="w-full bg-white/30 backdrop-blur-md shadow-lg transition-all duration-300 px-4"
+>
+  <div
+    class="container mx-auto px-4 flex flex-wrap items-center justify-between py-4"
+  >
+    <a href="/" class="flex items-center gap-3">
+      <span
+        class="self-center text-2xl font-bold whitespace-nowrap text-var(--color-accent) font-castoro"
+        >Bocarlo</span
+      >
+    </a>
+    <button
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-var(--color-muted) rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+      aria-controls="navbar-menu"
+      aria-expanded="false"
+      id="burger-btn"
+    >
+      <span class="sr-only">Otwórz menu</span>
+      <svg
+        class="w-6 h-6"
+        aria-hidden="true"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+    <div
+      class="w-full md:block md:w-auto max-h-0 opacity-0 overflow-hidden transition-all duration-300 md:max-h-none md:opacity-100"
+      id="navbar-menu"
+    >
+      <ul
+        class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg bg-var(--color-secondary) md:flex-row md:space-x-8 md:mt-0 md:border-0"
+      >
+        <li class="border-b border-gray-400 last:border-b-0 md:border-none">
+          <a
+            href="#sale"
+            class="block py-2 px-3 text-var(--color-primary) md:p-0 hover:text-[var(--color-accent)] duration-150"
+            >Sale</a
+          >
+        </li>
+        <li class="border-b border-gray-400 last:border-b-0 md:border-none">
+          <a
+            href="#oferta"
+            class="block py-2 px-3 text-var(--color-primary) md:p-0 hover:text-[var(--color-accent)] duration-150"
+            >Oferta</a
+          >
+        </li>
+        <li class="border-b border-gray-400 last:border-b-0 md:border-none">
+          <a
+            href="#kontakt"
+            class="block py-2 px-3 text-var(--color-primary) md:p-0 hover:text-[var(--color-accent)] duration-150"
+            >Kontakt</a
+          >
+        </li>
+        <li class="border-b border-gray-400 last:border-b-0 md:border-none">
+          <a
+            href="#lokalizacje"
+            class="block py-2 px-3 text-var(--color-primary) md:p-0 hover:text-[var(--color-accent)] duration-150"
+            >Lokalizacje</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.getElementById("burger-btn");
+    const menu = document.getElementById("navbar-menu");
+    function closeMenu() {
+      if (menu) menu.classList.remove("max-h-[500px]", "opacity-100");
+      if (menu) menu.classList.add("max-h-0", "opacity-0", "overflow-hidden");
+      if (burger) burger.setAttribute("aria-expanded", "false");
+    }
+    function openMenu() {
+      if (menu)
+        menu.classList.remove("max-h-0", "opacity-0", "overflow-hidden");
+      if (menu) menu.classList.add("max-h-[500px]", "opacity-100");
+      if (burger) burger.setAttribute("aria-expanded", "true");
+    }
+    if (burger && menu) {
+      burger.addEventListener("click", () => {
+        const expanded = burger
+          ? burger.getAttribute("aria-expanded") === "true"
+          : false;
+        if (expanded) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+    }
+    // Zamykaj menu po kliknięciu w link na mobile
+    if (menu && burger) {
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", (e) => {
+          if (window.innerWidth < 768) {
+            // Wstrzymaj chowacza na 800ms, żeby nie scrollowało
+            setTimeout(() => {
+              closeMenu();
+            }, 800);
+          }
+        });
+      });
+    }
+    // Ukryj menu przy zmianie rozmiaru na desktop
+    window.addEventListener("resize", () => {
+      if (!menu || !burger) return;
+      if (window.innerWidth >= 768) {
+        if (menu)
+          menu.classList.remove(
+            "max-h-0",
+            "opacity-0",
+            "overflow-hidden",
+            "max-h-[500px]",
+            "opacity-100"
+          );
+        if (menu) menu.classList.add("max-h-none", "opacity-100");
+        if (burger) burger.setAttribute("aria-expanded", "false");
+      } else {
+        if (menu) menu.classList.remove("max-h-none");
+        closeMenu();
+      }
+    });
+    // Na starcie: menu zamknięte na mobile, otwarte na desktop
+    if (window.innerWidth >= 768) {
+      if (menu)
+        menu.classList.remove(
+          "max-h-0",
+          "opacity-0",
+          "overflow-hidden",
+          "max-h-[500px]",
+          "opacity-100"
+        );
+      if (menu) menu.classList.add("max-h-none", "opacity-100");
+      if (burger) burger.setAttribute("aria-expanded", "false");
+    } else {
+      if (menu) menu.classList.remove("max-h-none");
+      closeMenu();
+    }
+  });
+</script>

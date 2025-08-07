@@ -1,0 +1,10 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #111111; /* Czarny */
+  --color-secondary: #ffffff; /* Biały */
+  --color-accent: #7a5a31; /* Elegancki złoty */
+  --color-text: #333333; /* Ciemny szary dla tekstu */
+  --color-background: #ffffff; /* Białe tło */
+  --color-muted: #888888; /* Przygaszony szary */
+}
