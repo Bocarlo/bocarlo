@@ -6,8 +6,8 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://bocarlo.github.io/bocarlo/",
-  base: "/bocarlo/",
+  site: "https://bocarlo.net",
+  base: "/",
   integrations: [icon()],
   vite: {
     plugins: [tailwindcss()],
