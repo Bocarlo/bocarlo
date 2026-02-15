@@ -1,31 +1,18 @@
-<head>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bellefair&family=Castoro:ital@0;1&display=swap"
-    rel="stylesheet"
-  />
-  <style>
-    .font-castoro {
-      font-family: "Castoro", serif;
-    }
-  </style>
-</head>
 <nav
-  class="w-full bg-white/30 backdrop-blur-md shadow-lg transition-all duration-300 px-4"
+  class="w-full bg-black shadow-2xl border-b border-white/15 transition-all duration-300"
 >
   <div
-    class="container mx-auto px-4 flex flex-wrap items-center justify-between py-4"
+    class="container mx-auto px-4 md:px-6 flex flex-wrap items-center justify-between md:relative py-4"
   >
     <a href="/" class="flex items-center gap-3">
       <span
-        class="self-center text-2xl font-bold whitespace-nowrap text-var(--color-accent) font-castoro"
+        class="self-center text-3xl font-normal whitespace-nowrap text-white tracking-wide"
         >Bocarlo</span
       >
     </a>
     <button
       type="button"
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-var(--color-muted) rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-white/50"
       aria-controls="navbar-menu"
       aria-expanded="false"
       id="burger-btn"
@@ -46,37 +33,37 @@
       </svg>
     </button>
     <div
-      class="w-full md:block md:w-auto max-h-0 opacity-0 overflow-hidden transition-all duration-300 md:max-h-none md:opacity-100"
+      class="w-full md:block md:w-auto max-h-0 opacity-0 overflow-hidden transition-all duration-300 md:max-h-none md:opacity-100 md:absolute md:left-1/2 md:-translate-x-1/2"
       id="navbar-menu"
     >
       <ul
-        class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-lg bg-var(--color-secondary) md:flex-row md:space-x-8 md:mt-0 md:border-0"
+        class="font-medium flex flex-col p-4 md:p-0 mt-4 rounded-xl bg-black md:bg-transparent md:flex-row md:space-x-10 md:mt-0 md:border-0"
       >
-        <li class="border-b border-gray-400 last:border-b-0 md:border-none">
+        <li class="border-b border-white/20 last:border-b-0 md:border-none">
           <a
             href="#sale"
-            class="block py-2 px-3 text-var(--color-primary) md:p-0 hover:text-[var(--color-accent)] duration-150"
+            class="nav-link block py-2 px-3 text-white md:p-0 transition-all duration-300 ease-out"
             >Sale</a
           >
         </li>
-        <li class="border-b border-gray-400 last:border-b-0 md:border-none">
+        <li class="border-b border-white/20 last:border-b-0 md:border-none">
           <a
             href="#oferta"
-            class="block py-2 px-3 text-var(--color-primary) md:p-0 hover:text-[var(--color-accent)] duration-150"
+            class="nav-link block py-2 px-3 text-white md:p-0 transition-all duration-300 ease-out"
             >Oferta</a
           >
         </li>
-        <li class="border-b border-gray-400 last:border-b-0 md:border-none">
+        <li class="border-b border-white/20 last:border-b-0 md:border-none">
           <a
             href="#kontakt"
-            class="block py-2 px-3 text-var(--color-primary) md:p-0 hover:text-[var(--color-accent)] duration-150"
+            class="nav-link block py-2 px-3 text-white md:p-0 transition-all duration-300 ease-out"
             >Kontakt</a
           >
         </li>
-        <li class="border-b border-gray-400 last:border-b-0 md:border-none">
+        <li class="border-b border-white/20 last:border-b-0 md:border-none">
           <a
             href="#lokalizacje"
-            class="block py-2 px-3 text-var(--color-primary) md:p-0 hover:text-[var(--color-accent)] duration-150"
+            class="nav-link block py-2 px-3 text-white md:p-0 transition-all duration-300 ease-out"
             >Lokalizacje</a
           >
         </li>
@@ -84,6 +71,30 @@
     </div>
   </div>
 </nav>
+
+<style>
+  .nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+  }
+
+  @media (min-width: 768px) {
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 0;
+      height: 1.5px;
+      background: white;
+      transition: width 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+  }
+</style>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {

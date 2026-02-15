@@ -16,21 +16,30 @@ import Footer from "../components/Footer.astro";
       content="Dom Weselny Bocarlo - Twoje wymarzone miejsce na wesele"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Castoro:ital@0;1&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body style="font-family: 'Inter', 'Montserrat', sans-serif;">
-    <div class="min-h-screen bg-gradient-to-b from-[#f9f7f4] to-[#f5f4f2]">
+  <body>
+    <div class="min-h-screen bg-gradient-to-b from-white via-[#f7f7f7] to-[#efefef]">
       <div
         id="navbar-wrapper"
         class="fixed top-0 left-0 w-full z-50 transition-transform duration-300 will-change-transform"
       >
         <Navbar
-          class="bg-white/55 backdrop-blur-xl backdrop-saturate-150 shadow-2xl border-b border-gray-200/30 transition-colors duration-300"
+          class="bg-black shadow-2xl border-b border-white/15 transition-colors duration-300"
         />
       </div>
-      <main class="container mx-auto min-h-[60vh] pt-16">
+      <main class="w-full min-h-[60vh] pt-18">
         <slot />
       </main>
       <Footer />

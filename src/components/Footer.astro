@@ -1,14 +1,25 @@
 ---
 
+import { Icon } from "astro-icon/components";
 ---
 
 <footer
-  class="w-full bg-var(--color-secondary) shadow-inner border-t border-gray-200 mt-auto"
+  class="w-full bg-black shadow-inner border-t border-white/15 mt-auto"
 >
-  <div class="container mx-auto px-4 py-6 text-center">
-    <p class="text-var(--color-accent) text-base">
+  <div class="container mx-auto px-4 py-6 grid grid-cols-3 items-center">
+    <a
+      href="https://www.facebook.com/profile.php?id=100057527347729"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center gap-2 text-white/70 hover:text-white transition-colors duration-300"
+    >
+      <Icon name="mdi:facebook" class="w-5 h-5 pb-0.5" />
+      <span class="text-sm">Zaobserwuj nas na Facebooku</span>
+    </a>
+    <p class="text-white/70 text-base text-center">
       &copy; {new Date().getFullYear()} Dom Weselny Bocarlo. Wszelkie prawa zastrzeżone.
     </p>
+    <div></div>
   </div>
 </footer>
 

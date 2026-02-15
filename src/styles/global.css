@@ -3,8 +3,14 @@
 :root {
   --color-primary: #111111; /* Czarny */
   --color-secondary: #ffffff; /* Biały */
-  --color-accent: #7a5a31; /* Elegancki złoty */
-  --color-text: #333333; /* Ciemny szary dla tekstu */
+  --color-accent: #111111; /* Czarne akcenty */
+  --color-text: #111111; /* Czarny tekst */
   --color-background: #ffffff; /* Białe tło */
-  --color-muted: #888888; /* Przygaszony szary */
+  --color-muted: #111111; /* Czarny tekst pomocniczy */
+}
+
+body {
+  font-family: "Castoro", "Times New Roman", serif;
+  color: var(--color-text);
+  background: #f7f7f7;
 }
