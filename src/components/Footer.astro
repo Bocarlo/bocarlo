@@ -6,7 +6,7 @@ import { Icon } from "astro-icon/components";
 <footer
   class="w-full bg-black shadow-inner border-t border-white/15 mt-auto"
 >
-  <div class="container mx-auto px-4 py-6 grid grid-cols-3 items-center">
+  <div class="container mx-auto px-4 py-6 flex flex-col gap-3 md:grid md:grid-cols-3 items-center">
     <a
       href="https://www.facebook.com/profile.php?id=100057527347729"
       target="_blank"
@@ -19,7 +19,7 @@ import { Icon } from "astro-icon/components";
     <p class="text-white/70 text-base text-center">
       &copy; {new Date().getFullYear()} Dom Weselny Bocarlo. Wszelkie prawa zastrzeżone.
     </p>
-    <div></div>
+    <div class="hidden md:block"></div>
   </div>
 </footer>
 
