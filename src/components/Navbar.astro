@@ -123,6 +123,22 @@
         }
       });
     }
+    // Zamykaj menu po kliknięciu poza nim
+    document.addEventListener("click", (e) => {
+      if (!burger || !menu) return;
+      if (window.innerWidth >= 768) return; // Tylko na mobile
+      
+      const expanded = burger.getAttribute("aria-expanded") === "true";
+      if (!expanded) return; // Menu już zamknięte
+      
+      const target = e.target as Node;
+      const isClickInsideMenu = menu.contains(target);
+      const isClickOnBurger = burger.contains(target);
+      
+      if (!isClickInsideMenu && !isClickOnBurger) {
+        closeMenu();
+      }
+    });
     // Zamykaj menu po kliknięciu w link na mobile
     if (menu && burger) {
       menu.querySelectorAll("a").forEach((link) => {
