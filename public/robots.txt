@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bocarlo.net/sitemap-index.xml

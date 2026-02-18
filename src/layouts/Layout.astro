@@ -2,6 +2,13 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
+
+const siteUrl = "https://bocarlo.net";
+const siteName = "Dom Weselny Bocarlo";
+const title = "Bocarlo – Dom Weselny | Wesela, Przyjęcia, Eventy | Tryńcza & Grodzisko Dolne";
+const description = "Bocarlo – Dom Weselny w Tryńczy i Grodzisku Dolnym. Organizujemy wesela, przyjęcia okolicznościowe, chrzciny, komunie, bankiety i spotkania biznesowe. Eleganckie sale, wyśmienita kuchnia i profesjonalna obsługa. Zadzwoń: 603 363 635.";
+const keywords = "Bocarlo, Dom Weselny Bocarlo, wesele Tryńcza, wesele Grodzisko Dolne, sala weselna Tryńcza, sala weselna podkarpackie, dom weselny podkarpackie, przyjęcia okolicznościowe, sala bankietowa, wesele podkarpackie, bocarlo.net, Bocarlo Tryńcza, Bocarlo Grodzisko, sala kryształowa, sala szklana";
+const ogImage = `${siteUrl}/bocarlo1.jfif`;
 ---
 
 <!doctype html>
@@ -10,11 +17,112 @@ import Footer from "../components/Footer.astro";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Dom Weselny Bocarlo</title>
-    <meta
-      name="description"
-      content="Dom Weselny Bocarlo - Twoje wymarzone miejsce na wesele"
-    />
+
+    <!-- SEO: Tytuł i opis -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content={siteName} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:locale" content="pl_PL" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Geo meta tags (lokalne SEO) -->
+    <meta name="geo.region" content="PL-18" />
+    <meta name="geo.placename" content="Tryńcza" />
+    <meta name="geo.position" content="50.169446;22.538278" />
+    <meta name="ICBM" content="50.169446, 22.538278" />
+
+    <!-- Structured Data: LocalBusiness JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "EventVenue",
+      "name": "Dom Weselny Bocarlo – Tryńcza",
+      "alternateName": "Bocarlo",
+      "description": "Dom Weselny Bocarlo w Tryńczy – eleganckie sale weselne, profesjonalna obsługa i wyśmienita kuchnia. Organizujemy wesela, przyjęcia okolicznościowe, bankiety i spotkania biznesowe.",
+      "url": siteUrl,
+      "telephone": "+48603363635",
+      "image": ogImage,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Tryńcza 284",
+        "addressLocality": "Tryńcza",
+        "postalCode": "37-204",
+        "addressRegion": "podkarpackie",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.169446,
+        "longitude": 22.538278
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "08:00",
+        "closes": "23:00"
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100057527347729"
+      ],
+      "priceRange": "$$",
+      "aggregateRating": undefined
+    })} />
+
+    <!-- Structured Data: Drugi oddział Grodzisko Dolne -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "EventVenue",
+      "name": "Dom Weselny Bocarlo – Grodzisko Dolne",
+      "alternateName": "Bocarlo Grodzisko",
+      "description": "Dom Weselny Bocarlo w Grodzisku Dolnym – nowoczesna sala weselna i bankietowa na podkarpaciu.",
+      "url": siteUrl,
+      "telephone": "+48603363635",
+      "image": ogImage,
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Grodzisko Dolne 366",
+        "addressLocality": "Grodzisko Dolne",
+        "postalCode": "37-306",
+        "addressRegion": "podkarpackie",
+        "addressCountry": "PL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 50.178754,
+        "longitude": 22.446704
+      },
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100057527347729"
+      ]
+    })} />
+
+    <!-- Structured Data: WebSite (Sitelinks Search Box) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": siteName,
+      "alternateName": "Bocarlo",
+      "url": siteUrl
+    })} />
+
+    <!-- Czcionki -->
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
